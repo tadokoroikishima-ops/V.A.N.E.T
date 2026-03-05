@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V.A.N.E.T // RESTRICTED</title>
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive">
+  <link rel="stylesheet" href="victoria_bbs.css">
+</head>
+<body class="crt-flicker">
+
+  <!-- ═══════════════════════════════════════════════
+       PASSWORD GATE
+  ═══════════════════════════════════════════════ -->
+
+  <div id="gate-screen" class="gate-screen">
+    <div class="gate-inner">
+      <div class="gate-logo">V.A.N.E.T</div>
+      <div class="gate-sub">VICTORIAN ARMY NETWORK TERMINAL</div>
+      <div class="gate-sub">UNOFFICIAL RELAY // NODE-7 // HILLOCK-3</div>
+      <div class="gate-divider"></div>
+      <div class="gate-warning">
+        ⚠ UNAUTHORISED ACCESS IS A COURT-MARTIAL OFFENCE<br>
+        THIS NODE IS NOT MONITORED BY HQ — USE AT OWN RISK
+      </div>
+      <div class="gate-form">
+        <div class="gate-label">ENTER ACCESS CODE:</div>
+        <input type="password" id="gate-input" class="gate-input" placeholder="_ _ _ _ _ _" autocomplete="off" maxlength="20">
+        <div id="gate-error" class="gate-error hidden">// ACCESS DENIED — INVALID CODE</div>
+        <button id="gate-submit" class="gate-btn">[CONNECT]</button>
+      </div>
+      <div class="gate-footer">ALL POSTS AUTO-PURGE EVERY 72HRS</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       DARK BOARD GATE
+  ═══════════════════════════════════════════════ -->
+
+  <div id="dark-gate" class="dark-gate hidden">
+    <div class="dark-gate-inner">
+      <div class="dark-gate-title">// RESTRICTED ACCESS //</div>
+      <div class="dark-gate-sub">This board requires separate authentication.</div>
+      <div class="dark-gate-sub red">Unauthorised attempts are logged.</div>
+      <div class="gate-form" style="margin-top:16px;">
+        <div class="gate-label">ENTER DARK CODE:</div>
+        <input type="password" id="dark-input" class="gate-input dark-input-style" placeholder="_ _ _ _ _ _" autocomplete="off" maxlength="20">
+        <div id="dark-error" class="gate-error hidden">// AUTHENTICATION FAILED</div>
+        <button id="dark-submit" class="gate-btn dark-btn">[AUTHENTICATE]</button>
+        <button id="dark-cancel" class="gate-btn cancel-btn">[CANCEL]</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       MAIN APP
+  ═══════════════════════════════════════════════ -->
+
+  <div id="app" class="wrapper hidden">
+
+```
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <div class="system-title">V.A.N.E.T</div>
+    <div class="system-sub">VICTORIAN ARMY NETWORK TERMINAL // RESTRICTED ACCESS // NODE-7</div>
+  </div>
+  <div class="header-right">
+    <div class="status"><span class="status-dot"></span>CONNECTED</div>
+    <div>USER: ██████ [ANON-LAYER: ON]</div>
+    <div>SESSION: <span id="live-time">1097.06.14 // --:--:--</span></div>
+    <div class="red-warn">⚠ UNOFFICIAL RELAY — USE AT OWN RISK</div>
+  </div>
+</div>
+
+<!-- WARNING BAR -->
+<div class="warning-bar">
+  !! THIS NODE IS NOT MONITORED BY HQ — ALL POSTS AUTO-PURGE EVERY 72HRS — DO NOT POST REAL NAMES OR UNIT NUMBERS IN FULL !!
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <div class="nav-item active">[BOARDS]</div>
+  <div class="nav-item noop">[SEARCH]</div>
+  <div class="nav-item noop">[COMPOSE]</div>
+  <div class="nav-item noop">[SETTINGS]</div>
+  <div class="nav-item noop nav-right">[HELP]</div>
+</div>
+
+<!-- CONTENT GRID -->
+<div class="content-grid">
+
+  <!-- LEFT SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">// BOARDS</div>
+      <div id="board-list"><!-- populated by JS --></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">// RELAY NODES</div>
+      <div class="node-item active">[HILLOCK-3]</div>
+      <div class="node-item">[LONDINIUM-7]</div>
+      <div class="node-item">[LYNNCARDINE-1]</div>
+      <div class="node-item">[CALADON-1]</div>
+      <div class="node-item">[CONNOR-3]</div>
+      <div class="node-item">[BOSCHENDAL-1]</div>
+      <div class="node-item">[SYKES-3]</div>
+      <div class="node-item">[LYNDON-3]</div>
+      <div class="node-item">[CASTSHIRE-3]</div>
+      <div class="node-item dim">[WESSEX-?]</div>
+      <div class="node-item dim">[PENINSULA-?]</div>
+      <div class="node-item dim">[NORTH-??]</div>
+    </div>
+  </div>
+
+  <!-- THREAD COLUMN -->
+  <div class="thread-col">
+    <div class="thread-area-header">
+      <div>
+        <div class="board-name" id="board-name-display">/gen/</div>
+        <div class="board-meta" id="board-meta">Threads: — // Viewing: ██ // Last updated: --:--</div>
+      </div>
+      <div class="thread-area-actions">
+        <div>[NEW THREAD]</div>
+        <div class="dim">[SORT: NEW]</div>
+      </div>
+    </div>
+
+    <div id="thread-list"><!-- populated by JS --></div>
+
+    <div class="input-area">
+      <span class="input-prompt">NEW &gt;</span>
+      <input class="input-field" type="text" placeholder="Start a new thread...">
+      <button class="submit-btn">[POST]</button>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right-panel">
+
+    <div class="panel-block">
+      <div class="panel-title">// SYSTEM STATUS</div>
+      <div class="stat-row"><span>NODE</span><span>HILLOCK-3</span></div>
+      <div class="stat-row"><span>PING</span><span>██ms</span></div>
+      <div class="stat-row"><span>USERS</span><span>[HIDDEN]</span></div>
+      <div class="stat-row"><span>PURGE IN</span><span id="purge-timer">--:--:--</span></div>
+      <div class="stat-row"><span>ENCRYPTION</span><span class="amber">PARTIAL</span></div>
+    </div>
+
+    <div class="panel-block">
+      <div class="panel-title">// 🔥 HOT THREADS</div>
+      <div class="hot-thread"><span class="ht-num">██</span><span class="red">/dark/ ████████████ [RESTRICTED]</span></div>
+      <div class="hot-thread"><span class="ht-num">156</span>/goss/ Military birds you'd shag</div>
+      <div class="hot-thread"><span class="ht-num">119</span>/goss/ Londinium Sarkaz</div>
+      <div class="hot-thread"><span class="ht-num">87</span>/goss/ Colonel and the married woman</div>
+      <div class="hot-thread"><span class="ht-num">44</span>/complaints/ Taran trouble</div>
+    </div>
+
+    <div class="panel-block">
+      <div class="panel-title">// ACTIVE HANDLES</div>
+      <div class="handle-row">Ashford <span class="dim">// 4 posts</span></div>
+      <div class="handle-row">Gravel-07 <span class="dim">// 3 posts</span></div>
+      <div class="handle-row">Furlong-3 <span class="dim">// 3 posts</span></div>
+      <div class="handle-row">IronHeel <span class="dim">// 2 posts</span></div>
+      <div class="handle-row">██████ <span class="dim">// 1 post</span></div>
+      <div class="handle-row dim">anon × ██</div>
+    </div>
+
+    <div class="panel-block">
+      <div class="panel-title">// NOTICE</div>
+      <div class="notice-text">
+        /dark/ requires separate<br>
+        authentication.<br>
+        Do not ask those you<br>
+        don't know.<br>
+        <br>
+        <span class="red">Monitoring possible.</span><br>
+        Post with caution.
+      </div>
+    </div>
+
+  </div><!-- /right-panel -->
+
+</div><!-- /content-grid -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>V.A.N.E.T // UNOFFICIAL NODE // NOT AFFILIATED WITH HQ COMMAND</span>
+  <span><span id="footer-time">1097.06.14 --:--:--</span> <span class="cursor"></span></span>
+</div>
+```
+
+  </div><!-- /app -->
+
+  <script src="victoria_bbs.js"></script>
+
+</body>
+</html>
