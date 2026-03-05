@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Special+Elite&family=VT323&display=swap');
 
 :root {
-  --bg:           #c8d4b8;
-  --bg2:          #b8c8a4;
-  --bg3:          #a8b894;
+  --bg:           #ffffff;
+  --bg2:          #ffffff;
+  --bg3:          #ffffff;
   --green:        #2a5a18;
   --green-dim:    #3a7a28;
   --green-bright: #1a4010;
